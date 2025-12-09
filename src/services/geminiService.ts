@@ -192,6 +192,22 @@ const FIXED_GAME_DATA: SignGameItem[] = [
   }
 ];
 
+// Função utilitária para embaralhar um array (com algoritmo Fisher-Yates)
+function shuffleArray<T>(array: T[]): T[] {
+  let currentIndex = array.length, randomIndex;
+  const newArray = [...array]; 
+  
+  while (currentIndex !== 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [newArray[currentIndex], newArray[randomIndex]] = [
+      newArray[randomIndex], newArray[currentIndex]
+    ];
+  }
+  return newArray;
+}
+
 export const fetchQuizQuestions = async (): Promise<QuizQuestion[]> => {
   if (!apiKey) {
     console.warn("No API Key found, using fallback data from Apostila.");
@@ -207,5 +223,8 @@ export const fetchQuizQuestions = async (): Promise<QuizQuestion[]> => {
 };
 
 export const fetchSignGameData = async (): Promise<SignGameItem[]> => {
-  return new Promise(resolve => setTimeout(() => resolve(FIXED_GAME_DATA), 600));
+  const shuffledData = shuffleArray(FIXED_GAME_DATA);
+  const selectedData = shuffledData.slice(0, 10); 
+  
+  return new Promise(resolve => setTimeout(() => resolve(selectedData), 600));
 };
