@@ -92,7 +92,7 @@ const FIXED_GAME_DATA: SignGameItem[] = [
     id: 8,
     word: "Mentira",
     description: "",
-    imageUrl: "/assets/mentira.png"
+    imageUrl: "/assets/mentir.png"
   },
   {
     id: 9,
