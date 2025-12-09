@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import BottomNav from './components/BottomNav';
-import HomeScreen from './screens/HomeScreen';
-import HistoryQuizScreen from './screens/HistoryQuizScreen';
-import SignGameScreen from './screens/SignGameScreen';
-import AboutScreen from './screens/AboutScreen';
+import BottomNav from './src/components/BottomNav';
+import HomeScreen from './src/screens/HomeScreen';
+import HistoryQuizScreen from './src/screens/HistoryQuizScreen';
+import SignGameScreen from './src/screens/SignGameScreen';
+import AboutScreen from './src/screens/AboutScreen';
 import { Screen } from './types';
 
 const App: React.FC = () => {
