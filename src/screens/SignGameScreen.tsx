@@ -146,7 +146,7 @@ const SignGameScreen: React.FC = () => {
                          <img 
                             src={item.imageUrl} 
                             alt={`Sinal de ${item.word}`} 
-                            className="h-full w-full object-cover"
+                            className="h-full w-full object-contain"
                             onError={() => handleImageError(item.id)}
                          />
                        ) : (
