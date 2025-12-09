@@ -4,7 +4,7 @@ import HomeScreen from './src/screens/HomeScreen';
 import HistoryQuizScreen from './src/screens/HistoryQuizScreen';
 import SignGameScreen from './src/screens/SignGameScreen';
 import AboutScreen from './src/screens/AboutScreen';
-import { Screen } from './types';
+import { Screen } from './src/types';
 
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState<Screen>(Screen.HOME);
