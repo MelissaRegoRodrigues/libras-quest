@@ -186,12 +186,6 @@ const FIXED_GAME_DATA: SignGameItem[] = [
   },
   {
     id: 24,
-    word: "Bom",
-    description: "",
-    imageUrl: "/assets/bom.png"
-  },
-  {
-    id: 25,
     word: "Boa Noite",
     description: "",
     imageUrl: "/assets/boa_noite.png"
