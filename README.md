@@ -1,24 +1,39 @@
-<<<<<<< HEAD
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# LibrasQuest - Protótipo Educacional
 
-# Run and deploy your AI Studio app
+Um protótipo interativo para o ensino de LIBRAS e sua história através de gamificação. Desenvolvido como projeto para a Universidade de Pernambuco (UPE) - Campus Garanhuns.
 
-This contains everything you need to run your app locally.
+## ✨ Funcionalidades do Projeto
 
-View your app in AI Studio: https://ai.studio/apps/temp/1
+O LibrasQuest inclui as seguintes telas, gerenciadas pelo componente `App.tsx`:
 
-## Run Locally
+* **Início (`HOME`)**: Tela principal com acesso rápido ao Quiz de História e ao Jogo de Sinais.
+* **Quiz de História (`QUIZ`)**: Testa conhecimentos sobre a história da LIBRAS com perguntas baseadas na Apostila Libras Básico I.
+* **Jogo de Sinais (`GAME`)**: Desafio de associação para aumentar o vocabulário de LIBRAS.
+* **Sobre (`ABOUT`)**: Detalhes sobre a instituição (UPE Campus Garanhuns), a equipe de desenvolvimento (Luíz Tenório, Melissa Rêgo, Paula Beatriz, Pedro Ricardo), e a fonte do material.
 
-**Prerequisites:**  Node.js
+## 💻 Configuração e Execução Local
 
+Este projeto requer o Node.js instalado.
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-=======
-# libras-quest
->>>>>>> dd320e98217d3c655a3997622f0aece4c1b8bb5f
+### 1. Pré-requisitos
+
+1.  Clone este repositório.
+2.  Instale as dependências:
+    ```bash
+    npm install
+    ```
+
+### 2. Configuração da API Key
+
+1.  Obtenha sua chave de API do Gemini.
+2.  Edite o arquivo `.env.local` e defina a chave:
+    ```
+    GEMINI_API_KEY=SUA_CHAVE_AQUI
+    ```
+
+### 3. Execução
+
+Rode o aplicativo em modo de desenvolvimento:
+
+```bash
+npm run dev
