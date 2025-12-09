@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { fetchSignGameData } from '../services/geminiService';
-import { SignGameItem } from '../types';
+import { fetchSignGameData, shuffleArray } from '../services/geminiService.ts'; 
+import { SignGameItem } from '../types.ts';
 import { Loader2, Shuffle, Image as ImageIcon } from 'lucide-react';
 
 const SignGameScreen: React.FC = () => {
@@ -8,9 +8,11 @@ const SignGameScreen: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [selectedWord, setSelectedWord] = useState<number | null>(null);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
-  const [matches, setMatches] = useState<number[]>([]); // Array of matched IDs
+  const [matches, setMatches] = useState<number[]>([]); 
   const [attempts, setAttempts] = useState(0);
   const [imageErrors, setImageErrors] = useState<number[]>([]);
+ 
+  const [shuffledImages, setShuffledImages] = useState<SignGameItem[]>([]); 
 
   useEffect(() => {
     startNewGame();
@@ -23,8 +25,12 @@ const SignGameScreen: React.FC = () => {
     setAttempts(0);
     setSelectedWord(null);
     setSelectedImage(null);
+    
     const data = await fetchSignGameData();
     setItems(data);
+    
+    setShuffledImages(shuffleArray(data)); 
+    
     setLoading(false);
   };
 
@@ -97,7 +103,6 @@ const SignGameScreen: React.FC = () => {
          </div>
       ) : (
         <div className="grid grid-cols-2 gap-4">
-          {/* Left Column: Words */}
           <div className="space-y-4">
              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 text-center">Palavra</h3>
              {items.map((item) => {
@@ -117,11 +122,9 @@ const SignGameScreen: React.FC = () => {
                )
              })}
           </div>
-
-          {/* Right Column: Images */}
           <div className="space-y-4">
              <h3 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-2 text-center">Sinal</h3>
-             {items.map((item) => {
+             {shuffledImages.map((item) => {
                const isMatched = matches.includes(item.id);
                const isSelected = selectedImage === item.id;
                const hasError = imageErrors.includes(item.id);

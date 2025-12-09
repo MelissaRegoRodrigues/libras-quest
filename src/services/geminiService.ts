@@ -1,10 +1,10 @@
+// Caminho: librasquest---protótipo-educacional/src/services/geminiService.ts
 import { GoogleGenAI, Type } from "@google/genai";
-import { QuizQuestion, SignGameItem } from "../types";
+import { QuizQuestion, SignGameItem } from "../types.ts"; // <-- CORRIGIDO
 
 const apiKey = process.env.API_KEY || '';
 const ai = new GoogleGenAI({ apiKey });
 
-// Quiz baseado na Página 5 ("História dos Surdos") da Apostila
 const FALLBACK_QUIZ: QuizQuestion[] = [
   {
     id: 1,
@@ -43,157 +43,35 @@ const FALLBACK_QUIZ: QuizQuestion[] = [
   }
 ];
 
-// Vocabulário baseado nas fotos da Apostila
-// IMPORTANTE: Adicione as imagens correspondentes na pasta 'public' ou 'assets' do seu projeto com os nomes abaixo.
 const FIXED_GAME_DATA: SignGameItem[] = [
-  {
-    id: 1,
-    word: "Oi",
-    description: "",
-    imageUrl: "/assets/oi.png" 
-  },
-  {
-    id: 2,
-    word: "Fazer",
-    description: "",
-    imageUrl: "/assets/fazer.png"
-  },
-  {
-    id: 3,
-    word: "Aprender",
-    description: "",
-    imageUrl: "/assets/aprender.png"
-  },
-  {
-    id: 4,
-    word: "Ter",
-    description: "",
-    imageUrl: "/assets/ter.png"
-  },
-  {
-    id: 5,
-    word: "Obrigada",
-    description: "",
-    imageUrl: "/assets/obrigada.png"
-  },
-  {
-    id: 6,
-    word: "Desculpa",
-    description: "",
-    imageUrl: "/assets/desculpa.png"
-  },
-  {
-    id: 7,
-    word: "Cansado",
-    description: "",
-    imageUrl: "/assets/cansado.png"
-  },
-  {
-    id: 8,
-    word: "Mentira",
-    description: "",
-    imageUrl: "/assets/mentir.png"
-  },
-  {
-    id: 9,
-    word: "Dias da Semana",
-    description: "",
-    imageUrl: "/assets/dias_semana.png"
-  },
-  {
-    id: 10,
-    word: "Bom",
-    description: "",
-    imageUrl: "/assets/bom.png"
-  },
-  {
-    id: 11,
-    word: "Gostar",
-    description: "",
-    imageUrl: "/assets/gostar.png"
-  },
-  {
-    id: 12,
-    word: "Parar",
-    description: "",
-    imageUrl: "/assets/parar.png"
-  },
-  {
-    id: 13,
-    word: "Obedecer",
-    description: "",
-    imageUrl: "/assets/obedecer.png"
-  },
-  {
-    id: 14,
-    word: "Ouvinte",
-    description: "",
-    imageUrl: "/assets/ouvinte.png"
-  },
-  {
-    id: 15,
-    word: "Surdo",
-    description: "",
-    imageUrl: "/assets/surdo.png"
-  },
-  {
-    id: 16,
-    word: "Saber",
-    description: "",
-    imageUrl: "/assets/saber.png"
-  },
-  {
-    id: 17,
-    word: "Não Saber",
-    description: "",
-    imageUrl: "/assets/nao_saber.png"
-  },
-  {
-    id: 18,
-    word: "Televisão",
-    description: "",
-    imageUrl: "/assets/tv.png"
-  },
-  {
-    id: 19,
-    word: "Velho",
-    description: "",
-    imageUrl: "/assets/velho.png"
-  },
-  {
-    id: 20,
-    word: "Banheiro",
-    description: "",
-    imageUrl: "/assets/banheiro.png"
-  },
-  {
-    id: 21,
-    word: "Namorar",
-    description: "",
-    imageUrl: "/assets/namorar.png"
-  },
-  {
-    id: 22,
-    word: "Passear",
-    description: "",
-    imageUrl: "/assets/passear.png"
-  },
-  {
-    id: 23,
-    word: "Tudo bem",
-    description: "",
-    imageUrl: "/assets/tudo_bem.png"
-  },
-  {
-    id: 24,
-    word: "Boa Noite",
-    description: "",
-    imageUrl: "/assets/boa_noite.png"
-  }
+  { id: 1, word: "Oi", description: "", imageUrl: "/assets/oi.png" },
+  { id: 2, word: "Fazer", description: "", imageUrl: "/assets/fazer.png" },
+  { id: 3, word: "Aprender", description: "", imageUrl: "/assets/aprender.png" },
+  { id: 4, word: "Ter", description: "", imageUrl: "/assets/ter.png" },
+  { id: 5, word: "Obrigada", description: "", imageUrl: "/assets/obrigada.png" },
+  { id: 6, word: "Desculpa", description: "", imageUrl: "/assets/desculpa.png" },
+  { id: 7, word: "Cansado", description: "", imageUrl: "/assets/cansado.png" },
+  { id: 8, word: "Mentira", description: "", imageUrl: "/assets/mentir.png" },
+  { id: 9, word: "Dias da Semana", description: "", imageUrl: "/assets/dias_semana.png" },
+  { id: 10, word: "Bom", description: "", imageUrl: "/assets/bom.png" },
+  { id: 11, word: "Gostar", description: "", imageUrl: "/assets/gostar.png" },
+  { id: 12, word: "Parar", description: "", imageUrl: "/assets/parar.png" },
+  { id: 13, word: "Obedecer", description: "", imageUrl: "/assets/obedecer.png" },
+  { id: 14, word: "Ouvinte", description: "", imageUrl: "/assets/ouvinte.png" },
+  { id: 15, word: "Surdo", description: "", imageUrl: "/assets/surdo.png" },
+  { id: 16, word: "Saber", description: "", imageUrl: "/assets/saber.png" },
+  { id: 17, word: "Não Saber", description: "", imageUrl: "/assets/nao_saber.png" },
+  { id: 18, word: "Televisão", description: "", imageUrl: "/assets/tv.png" },
+  { id: 19, word: "Velho", description: "", imageUrl: "/assets/velho.png" },
+  { id: 20, word: "Banheiro", description: "", imageUrl: "/assets/banheiro.png" },
+  { id: 21, word: "Namorar", description: "", imageUrl: "/assets/namorar.png" },
+  { id: 22, word: "Passear", description: "", imageUrl: "/assets/passear.png" },
+  { id: 23, word: "Tudo bem", description: "", imageUrl: "/assets/tudo_bem.png" },
+  { id: 24, word: "Boa Noite", description: "", imageUrl: "/assets/boa_noite.png" }
 ];
 
-// Função utilitária para embaralhar um array (com algoritmo Fisher-Yates)
-function shuffleArray<T>(array: T[]): T[] {
+// Função utilitária para embaralhar um array (algoritmo Fisher-Yates)
+export function shuffleArray<T>(array: T[]): T[] { 
   let currentIndex = array.length, randomIndex;
   const newArray = [...array]; 
   
@@ -224,7 +102,7 @@ export const fetchQuizQuestions = async (): Promise<QuizQuestion[]> => {
 
 export const fetchSignGameData = async (): Promise<SignGameItem[]> => {
   const shuffledData = shuffleArray(FIXED_GAME_DATA);
-  const selectedData = shuffledData.slice(0, 10); 
+  const selectedData = shuffledData.slice(0, 10); // <-- SELECIONA 10 ALEATÓRIOS
   
   return new Promise(resolve => setTimeout(() => resolve(selectedData), 600));
 };

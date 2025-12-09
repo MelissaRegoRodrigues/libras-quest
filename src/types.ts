@@ -16,8 +16,8 @@ export interface QuizQuestion {
 export interface SignGameItem {
   id: number;
   word: string;
-  description: string; // Description of the sign gesture
-  imageUrl?: string; // Placeholder for the sign image
+  description: string; 
+  imageUrl?: string; 
 }
 
 export interface GameState {
